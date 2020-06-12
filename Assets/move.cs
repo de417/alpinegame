@@ -35,7 +35,7 @@ public class move : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             if (isGrounded()) {
-                rb.AddForce(new Vector2(moveHorizontal * 7.0f, 10.0f), ForceMode2D.Impulse);
+                rb.AddForce(new Vector2(moveHorizontal * 7.0f, 12.0f), ForceMode2D.Impulse);
             }
         }
 
