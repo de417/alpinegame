@@ -30,12 +30,12 @@ public class move : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
 
         if (isGrounded()) transform.Translate(new Vector2(moveHorizontal * 0.04f, 0));
-        else transform.Translate(new Vector2(moveHorizontal * 0.03f, 0));
+        else transform.Translate(new Vector2(moveHorizontal * 0.02f, 0));
 
         if (Input.GetKeyDown("space"))
         {
             if (isGrounded()) {
-                rb.AddForce(new Vector2(0, 10.0f), ForceMode2D.Impulse);
+                rb.AddForce(new Vector2(moveHorizontal * 7.0f, 10.0f), ForceMode2D.Impulse);
             }
         }
 
