@@ -6,11 +6,13 @@ public class move : MonoBehaviour
 {
 
     public Rigidbody2D rb;
+    public bool isMoving;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        isMoving = false;
     }
 
     bool isGrounded()
@@ -29,8 +31,26 @@ public class move : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
 
-        if (isGrounded()) transform.Translate(new Vector2(moveHorizontal * 0.04f, 0));
-        else transform.Translate(new Vector2(moveHorizontal * 0.02f, 0));
+        if (moveHorizontal != 0)
+        {
+            isMoving = true;
+            if (isGrounded())
+            {
+                speed = moveHorizontal * 0.04f;
+                transform.Translate(new Vector2(speed, 0));
+            }
+
+            else {
+                speed = moveHorizontal * 0.02f;
+                transform.Translate(new Vector2(moveHorizontal * 0.02f, 0));
+            }
+
+        }
+
+        else
+        {
+            isMoving = false;
+        }
 
         if (Input.GetKeyDown("space"))
         {
