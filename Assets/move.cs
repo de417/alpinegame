@@ -40,8 +40,9 @@ public class move : MonoBehaviour
                 transform.Translate(new Vector2(speed, 0));
             }
 
-            else {
-                speed = moveHorizontal * 0.02f;
+            else
+            {
+                speed = moveHorizontal * 0.03f;
                 transform.Translate(new Vector2(moveHorizontal * 0.02f, 0));
             }
 
@@ -55,7 +56,7 @@ public class move : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             if (isGrounded()) {
-                rb.AddForce(new Vector2(moveHorizontal * 7.0f, 10.0f), ForceMode2D.Impulse);
+                rb.AddForce(new Vector2(0, 10.0f), ForceMode2D.Impulse);
             }
         }
 
