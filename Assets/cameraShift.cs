@@ -17,6 +17,7 @@ public class cameraShift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // doesn't really work
         if ((player.transform.position.x - transform.position.x) > 3 || (transform.position.x - player.transform.position.x) > 6)
         {
             if (playerScript.isMoving)
@@ -26,11 +27,13 @@ public class cameraShift : MonoBehaviour
                 if (player.transform.position.x > transform.position.x)
                 {
                     transform.Translate(new Vector2(0.3f, 0));
-                } else
+                }
+                else
                 {
                     transform.Translate(new Vector2(-0.3f, 0));
                 }
             }
         }
     }
+
 }
