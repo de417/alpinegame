@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask ground;
     [SerializeField] private float speed = 2f;
 
+    public int numSpaceshipParts = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,15 @@ public class PlayerController : MonoBehaviour
         VelocityState();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Collectable")
+        {
+            Destroy(collision.gameObject);
+            numSpaceshipParts++;
+        }
+    }
+
     private void VelocityState()
     {
         if(state == State.jumping)
@@ -55,6 +66,7 @@ public class PlayerController : MonoBehaviour
                 state = State.falling;
             }
         }
+
         if(state == State.falling)
         {
             if (coll.IsTouchingLayers(ground))
@@ -62,7 +74,7 @@ public class PlayerController : MonoBehaviour
                 state = State.idle;
             }
         }
-        else if(Mathf.Abs(rb.velocity.x) > 2f)
+        else if(Mathf.Abs(rb.velocity.x) > .2f)
         {
             state = State.running;
         }
