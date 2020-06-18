@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     //private Animator anim;
-    private enum State { idle, running, jumping, falling}
-    private State state = State.idle;
+    public enum State { idle, running, jumping, falling}
+    public State state = State.idle;
     private Collider2D coll;
     [SerializeField] private LayerMask ground;
     [SerializeField] private float speed = 2f;
