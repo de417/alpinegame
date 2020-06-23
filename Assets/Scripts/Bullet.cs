@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    String projectileType = "TestBullet";
-   
+    public String projectileType = "TestBullet";
+    public int speed = 1;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = transform.position + new Vector3(speed * Time.deltaTime, 0, 0);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

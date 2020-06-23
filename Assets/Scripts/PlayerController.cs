@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetButtonDown("Jump") && coll.IsTouchingLayers(ground))
         {
-            rb.velocity = new Vector2(rb.velocity.x, 7f);
+            rb.velocity = new Vector2(rb.velocity.x, 12f);
             state = State.jumping;
         }
 
@@ -82,5 +82,10 @@ public class PlayerController : MonoBehaviour
         {
             state = State.idle;
         }
+    }
+
+    private void ShootWeapon()
+    {
+
     }
 }
