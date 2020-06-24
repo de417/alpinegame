@@ -11,9 +11,14 @@ public class PlayerController : MonoBehaviour
     public State state = State.idle;
     private Collider2D coll;
     [SerializeField] private LayerMask ground;
-    [SerializeField] private float speed = 2f;
 
+
+    [SerializeField] private float speed = 2f;
+    private Weapon rangedWeapon = new Weapon("Pistol", 5, 10, 0);
+    public Transform firePosition;
     public int numSpaceshipParts = 0;
+
+    public GameObject bulletPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -31,12 +36,12 @@ public class PlayerController : MonoBehaviour
         if(hDirection < 0)
         {
             rb.velocity = new Vector2(-speed, rb.velocity.y);
-            transform.localScale = new Vector2(-1, 1);
+            //transform.localScale = new Vector2(-1, 1);
         }
         else if( hDirection > 0)
         {
             rb.velocity = new Vector2(speed, rb.velocity.y);
-            transform.localScale = new Vector2(1, 1);
+            //transform.localScale = new Vector2(1, 1);
         }
 
         if(Input.GetButtonDown("Jump") && coll.IsTouchingLayers(ground))
@@ -46,6 +51,13 @@ public class PlayerController : MonoBehaviour
         }
 
         VelocityState();
+
+        if (Input.GetButtonDown("Fire1")) //&& inventory.myStuff.bullets > 0)
+        {
+            Debug.Log("pew");
+            GameObject bulletInstance = Instantiate(bulletPrefab, firePosition.position, firePosition.rotation) as GameObject;
+            //inventory.myStuff.bullets--;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
     private void VelocityState()
     {
-        if(state == State.jumping)
+        if(state == State.jumping || rb.velocity.y > 1)
         {
             if (rb.velocity.y < 0.1) 
             {
@@ -74,18 +86,19 @@ public class PlayerController : MonoBehaviour
                 state = State.idle;
             }
         }
-        else if(Mathf.Abs(rb.velocity.x) > .2f)
+        else if(Mathf.Abs(rb.velocity.x) > 2f)
         {
             state = State.running;
         }
         else
         {
             state = State.idle;
+            //rb.velocity = new Vector2(0, 0);
         }
     }
 
     private void ShootWeapon()
     {
-
+        
     }
 }

@@ -122,4 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: Test
-  speed: 1
+  speed: 5
+  damage: 10
+  rotationOffset: 0
