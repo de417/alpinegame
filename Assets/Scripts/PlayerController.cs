@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //general variables
     private Rigidbody2D rb;
     //private Animator anim;
     public enum State { idle, running, jumping, falling}
@@ -12,13 +13,15 @@ public class PlayerController : MonoBehaviour
     private Collider2D coll;
     [SerializeField] private LayerMask ground;
 
-
+    //variables for player Inventory
     [SerializeField] private float speed = 2f;
-    private Weapon rangedWeapon = new Weapon("Pistol", 5, 10, 0);
-    public Transform firePosition;
     public int numSpaceshipParts = 0;
 
+    //variables for weapons and shooting
+    public Weapon rangedWeapon = new Weapon("Pistol", 5, 10, 0);
+    public Transform firePosition;
     public GameObject bulletPrefab;
+    private float timeToFire = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //Animation = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
+        rangedWeapon = new Weapon("Pistol", 5, 10, 0);
     }
 
     // Update is called once per frame
@@ -38,7 +42,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(-speed, rb.velocity.y);
             //transform.localScale = new Vector2(-1, 1);
         }
-        else if( hDirection > 0)
+        else if(hDirection > 0)
         {
             rb.velocity = new Vector2(speed, rb.velocity.y);
             //transform.localScale = new Vector2(1, 1);
@@ -52,12 +56,23 @@ public class PlayerController : MonoBehaviour
 
         VelocityState();
 
-        if (Input.GetButtonDown("Fire1")) //&& inventory.myStuff.bullets > 0)
+        if (rangedWeapon.getFireRate() == 0)
         {
-            Debug.Log("pew");
-            GameObject bulletInstance = Instantiate(bulletPrefab, firePosition.position, firePosition.rotation) as GameObject;
-            //inventory.myStuff.bullets--;
+            if (Input.GetButtonDown("Fire1")) //&& inventory.myStuff.bullets > 0)
+            {
+                ShootWeapon();
+            }
+            
         }
+        else 
+        {
+            if (Input.GetButton("Fire1") && Time.time > timeToFire) // && inventory.myStuff.bullets > 0)
+            {
+                timeToFire = Time.time + (1 / rangedWeapon.getFireRate());
+                ShootWeapon();
+            }
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -99,6 +114,9 @@ public class PlayerController : MonoBehaviour
 
     private void ShootWeapon()
     {
-        
+        Debug.Log("pew");
+        GameObject bulletInstance = Instantiate(bulletPrefab, firePosition.position, firePosition.rotation) as GameObject;
+        //inventory.myStuff.bullets--;
     }
+
 }
