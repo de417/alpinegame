@@ -18,6 +18,8 @@ public class Bullet : MonoBehaviour
         Difference.Normalize(); //sets magnitude to 1 while maintaining component ratios
         float rotationZ = Mathf.Atan2(Difference.y, Difference.x) * Mathf.Rad2Deg; //finds angle in degrees
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ + rotationOffset);
+        Debug.Log(Difference);
+        
     }
 
     public Bullet(String projectileType, int speed, int damage)
