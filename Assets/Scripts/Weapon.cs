@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    private string projectileType;
-    private int speed;
-    private int damage;
-    private int fireRate;
+    public string projectileType;
+    public int speed;
+    public int damage;
+    public float fireRate;
 
-    public Weapon(string type, int spd, int dmg, int rate)
+    public Weapon(string type, int spd, int dmg, float rate)
     {
         projectileType = type;
         speed = spd;
@@ -29,8 +29,10 @@ public class Weapon : MonoBehaviour
     {
         return damage;
     }
-    public int getFireRate()
+    public float getFireRate()
     {
         return fireRate;
     }
+
+    
 }
