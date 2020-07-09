@@ -6,9 +6,11 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    int timeToMove = 5;
+    float timeToMove = 4f;
     int timeToShoot = 3;
-    bool playerIsInRange = false;
+    int direction = 1;
+    public float speed = 1/100;
+    public bool playerIsInRange = false;
     public GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,22 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if((Math.Abs(transform.position.x - player.transform.position.x) < 7) && Math.Abs(transform.position.y - player.transform.position.y) < 7)
+        {
+            playerIsInRange = true;
+        }
+        else
+        {
+            playerIsInRange = false;
+        }
+
+        if(Time.time > timeToMove)
+        {
+            direction *= -1;
+            timeToMove = Time.time + 4f;
+        }
+        transform.position = new Vector3 (transform.position.x + (speed * direction), transform.position.y, transform.position.z);
+
         if(playerIsInRange){
             Shoot();
         }
@@ -26,6 +44,6 @@ public class EnemyController : MonoBehaviour
 
     private void Shoot()
     {
-        throw new NotImplementedException();
+        Debug.Log("Attack!");
     }
 }

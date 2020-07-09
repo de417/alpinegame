@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     public int speed = 1;
     public int damage = 50;
     public int rotationOffset;
+    float rotationZ;
+
     Vector3 Difference;
 
     // Start is called before the first frame update
@@ -16,10 +18,11 @@ public class Bullet : MonoBehaviour
     {
         Difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position; //calculates difference between player location and mouse location
         Difference.Normalize(); //sets magnitude to 1 while maintaining component ratios
-        float rotationZ = Mathf.Atan2(Difference.y, Difference.x) * Mathf.Rad2Deg; //finds angle in degrees
+        rotationZ = Mathf.Atan2(Difference.y, Difference.x) * Mathf.Rad2Deg; //finds angle in degrees
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ + rotationOffset);
         Debug.Log(Difference);
         
+
     }
 
     public Bullet(String projectileType, int speed, int damage)
@@ -32,7 +35,21 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + new Vector3(Difference.x * speed * Time.deltaTime, Difference.y * speed * Time.deltaTime, 0);
+        if(Difference.x >= 0 && Difference.y >= 0)
+        {
+            transform.position = transform.position + new Vector3((float)Math.Sqrt(Math.Abs(Difference.x)) * speed * Time.deltaTime, (float)Math.Sqrt(Math.Abs(Difference.y)) * speed * Time.deltaTime, 0);
+        }else if (Difference.x < 0 && Difference.y > 0)
+        {
+            transform.position = transform.position + new Vector3((float)Math.Sqrt(Math.Abs(Difference.x)) * -1 * speed * Time.deltaTime, (float)Math.Sqrt(Math.Abs(Difference.y)) * speed * Time.deltaTime, 0);
+        }else if (Difference.x < 0 && Difference.y < 0)
+        {
+            transform.position = transform.position + new Vector3((float)Math.Sqrt(Math.Abs(Difference.x)) * -1 * speed * Time.deltaTime, (float)Math.Sqrt(Math.Abs(Difference.y)) * -1 * speed * Time.deltaTime, 0);
+        }
+        else
+        {
+            transform.position = transform.position + new Vector3((float)Math.Sqrt(Math.Abs(Difference.x)) * speed * Time.deltaTime, (float)Math.Sqrt(Math.Abs(Difference.y)) * -1 * speed * Time.deltaTime, 0);
+        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
