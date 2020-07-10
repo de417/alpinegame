@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class cameraShift : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     public Transform player;
     move playerScript;
@@ -12,6 +12,10 @@ public class cameraShift : MonoBehaviour
     void Start()
     {
         
+    }
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
     }
 
     // Update is called once per frame
