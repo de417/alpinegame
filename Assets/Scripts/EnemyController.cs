@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public float speed = 1/100;
     public bool playerIsInRange = false;
     public GameObject player;
+    public int health = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +41,21 @@ public class EnemyController : MonoBehaviour
         if(playerIsInRange){
             Shoot();
         }
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Bullet")
+        {
+            health -= 10;
+            Debug.Log("Ouch");
+        }
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+        
     }
 
     private void Shoot()
