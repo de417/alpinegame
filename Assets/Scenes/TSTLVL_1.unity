@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8304d5dcd98382149b1b7a19fd96b63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!50 &233612263
 Rigidbody2D:
   serializedVersion: 4
@@ -889,7 +890,7 @@ GameObject:
   - component: {fileID: 909953371}
   m_Layer: 0
   m_Name: Basic Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -906,7 +907,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdf91e149c340948845f1659cf17910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  playerIsInRange: 0
   player: {fileID: 1063836244}
+  health: 100
 --- !u!212 &909953372
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2177,7 +2181,7 @@ GameObject:
   - component: {fileID: 1860786779}
   m_Layer: 0
   m_Name: Basic Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2194,7 +2198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdf91e149c340948845f1659cf17910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  playerIsInRange: 0
   player: {fileID: 1063836244}
+  health: 100
 --- !u!212 &1860786780
 SpriteRenderer:
   m_ObjectHideFlags: 0
