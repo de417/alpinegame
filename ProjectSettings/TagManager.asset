@@ -42,6 +42,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 1248300791
+    locked: 0
+  - name: 'Static Set '
+    uniqueID: 760439499
+    locked: 0
+  - name: Platforms
+    uniqueID: 3998981967
+    locked: 0
+  - name: Characters
+    uniqueID: 489650939
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
