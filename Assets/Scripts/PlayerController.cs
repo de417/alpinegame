@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 2f;
     public int numSpaceshipParts = 0;
 
+    //player variables
+    public int health = 300;
+
     //variables for weapons and shooting
     public Weapon rangedWeapon = new Weapon("Pistol", 5, 10, 0);
     public Transform firePosition;
@@ -117,6 +120,20 @@ public class PlayerController : MonoBehaviour
         Debug.Log("pew");
         GameObject bulletInstance = Instantiate(bulletPrefab, firePosition.position, firePosition.rotation) as GameObject;
         //inventory.myStuff.bullets--;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "EnemyBullet")
+        {
+            health -= 10;
+        }
+        if (health <= 0)
+        {
+            Debug.Log("Game Over");
+            Destroy(this.gameObject);
+        }
+       
     }
 
 }
