@@ -7,12 +7,15 @@ public class EnemyController : MonoBehaviour
 {
 
     float timeToMove = 4f;
-    int timeToShoot = 3;
+    float timeToShoot = 3;
     int direction = 1;
     public float speed = 1/100;
     public bool playerIsInRange = false;
     public GameObject player;
     public int health = 100;
+
+    public Transform firePosition;
+    public GameObject bulletPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +49,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Bullet")
+        if (collision.collider.tag == "PlayerBullet")
         {
             health -= 10;
             Debug.Log("Ouch");
@@ -61,5 +64,20 @@ public class EnemyController : MonoBehaviour
     private void Shoot()
     {
         Debug.Log("Attack!");
+
+        Vector3 Difference;
+        float rotationZ;
+        Difference = new Vector3(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y, player.transform.position.x - transform.position.z); //calculates difference between player location and mouse location
+        Difference.Normalize(); //sets magnitude to 1 while maintaining component ratios
+        rotationZ = Mathf.Atan2(Difference.y, Difference.x) * Mathf.Rad2Deg; //finds angle in degrees
+        //transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
+
+        if (Time.time > timeToShoot) 
+        {
+            GameObject bulletInstance = Instantiate(bulletPrefab, firePosition.position, Quaternion.Euler(Difference)) as GameObject;
+            timeToShoot = Time.time + 3f;
+        }
+        
+
     }
 }
