@@ -38,6 +38,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(transform.position.y < -10)
+        {
+            transform.position = new Vector3(0,0,0);
+            numSpaceshipParts = 0;
+        }
+
         float hDirection = Input.GetAxis("Horizontal");
 
         if(hDirection < 0)
