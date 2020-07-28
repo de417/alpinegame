@@ -71,6 +71,7 @@ public class EnemyController : MonoBehaviour
         Difference.Normalize(); //sets magnitude to 1 while maintaining component ratios
         rotationZ = Mathf.Atan2(Difference.y, Difference.x) * Mathf.Rad2Deg; //finds angle in degrees
         //transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
+        
 
         if (Time.time > timeToShoot) 
         {
