@@ -17,14 +17,18 @@ public class EnemyController : MonoBehaviour
     public Transform firePosition;
     public GameObject bulletPrefab;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+   
+	
+	//AnimationTest
+	public Animator animator;
+	
 
     // Update is called once per frame
     void Update()
     {
+		animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+		
         if((Math.Abs(transform.position.x - player.transform.position.x) < 7) && Math.Abs(transform.position.y - player.transform.position.y) < 7)
         {
             playerIsInRange = true;
