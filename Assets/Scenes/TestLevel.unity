@@ -1586,7 +1586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &663823619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,6 +1606,7 @@ MonoBehaviour:
   firePosition: {fileID: 2022356519}
   bulletPrefab: {fileID: 5395067618880177026, guid: 9b17c4b5ab06477448c3271f18eb2220,
     type: 3}
+  animator: {fileID: 0}
 --- !u!212 &663823620
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3999,6 +4000,31 @@ Transform:
   m_Father: {fileID: 161477394}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1877665203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5922692130805531352, guid: 3a2152a619cd1074fa059e26348ab7b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5922692129082658182}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1877665204
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877665203}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 748f224ecdcb1eb438c8ff56dc5b4689, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1959761554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4461,6 +4487,11 @@ PrefabInstance:
       propertyPath: playerIsInRange
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5922692130805531353, guid: 3a2152a619cd1074fa059e26348ab7b1,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1877665204}
     - target: {fileID: 5922692130805531364, guid: 3a2152a619cd1074fa059e26348ab7b1,
         type: 3}
       propertyPath: m_Size.x
