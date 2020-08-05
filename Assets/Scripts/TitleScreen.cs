@@ -23,13 +23,11 @@ public class TitleScreen : MonoBehaviour
         SceneManager.LoadScene(newGameScene);
 
     }
-    /*
-     * public void QuitGame()
-     * {
-     * Application.Quit();
-     * }
-     */
-     
-  
+   
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+ 
 
 }
