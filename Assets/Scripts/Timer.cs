@@ -32,6 +32,7 @@ public class Timer : MonoBehaviour
 	
 	public void Finish() {
 		AtBox = true;
-		timerText.color = Color.red;
+		timerText.color = Color.green;
+		timerText.fontSize = 60;
 	}
 }
