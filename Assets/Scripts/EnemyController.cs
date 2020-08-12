@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+		animator.SetFloat(x, direction.x);
 		
         if((Math.Abs(transform.position.x - player.transform.position.x) < 7) && Math.Abs(transform.position.y - player.transform.position.y) < 7)
         {
