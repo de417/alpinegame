@@ -5,11 +5,15 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour
 {
 
-    public Weapon myWeapon = new Weapon("SMG", 10, 5, 5);
+    public Weapon myWeapon;
     // Start is called before the first frame update
     void Start()
     {
-        myWeapon = new Weapon("SMG", 10, 5, 5);
+        myWeapon = gameObject.AddComponent<Weapon>() as Weapon;
+		myWeapon.projectileType = "SMG";
+		myWeapon.speed = 10;
+		myWeapon.damage = 5;
+		myWeapon.fireRate = 5;
     }
 
     // Update is called once per frame

@@ -2689,6 +2689,12 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!4 &1117714518 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6043083000873741627, guid: 2af356ad6e4a6da4fb0efa4bb561bb02,
+    type: 3}
+  m_PrefabInstance: {fileID: 1654729099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1143424109
 GameObject:
   m_ObjectHideFlags: 0
@@ -3312,7 +3318,7 @@ GameObject:
   - component: {fileID: 1357159028}
   m_Layer: 0
   m_Name: Enemy Float idle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3362,12 +3368,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bdf91e149c340948845f1659cf17910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 0.01
   playerIsInRange: 0
   player: {fileID: 0}
   health: 100
-  firePosition: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  firePosition: {fileID: 1117714518}
+  bulletPrefab: {fileID: 5395067618880177026, guid: 9b17c4b5ab06477448c3271f18eb2220,
+    type: 3}
   animator: {fileID: 1357159028}
 --- !u!212 &1357159030
 SpriteRenderer:

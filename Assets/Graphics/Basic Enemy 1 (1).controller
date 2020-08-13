@@ -58,7 +58,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Idle
-  m_Speed: 1
+  m_Speed: 0
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -114,13 +114,13 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 5420117385882924934}
-    m_Position: {x: 20, y: 130, z: 0}
+    m_Position: {x: 30, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1931926263846782306}
-    m_Position: {x: 520, y: 130, z: 0}
+    m_Position: {x: 550, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2909328115310529860}
-    m_Position: {x: 270, y: 130, z: 0}
+    m_Position: {x: 280, y: 160, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -5768919403255505146}
@@ -128,9 +128,9 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 290, y: 50, z: 0}
-  m_EntryPosition: {x: 290, y: 220, z: 0}
-  m_ExitPosition: {x: 290, y: 290, z: 0}
+  m_AnyStatePosition: {x: 300, y: 50, z: 0}
+  m_EntryPosition: {x: 300, y: 240, z: 0}
+  m_ExitPosition: {x: 290, y: 330, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -2909328115310529860}
 --- !u!1107 &-470967126468807350
@@ -275,4 +275,4 @@ AnimatorStateTransition:
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
+  m_CanTransitionToSelf: 0
