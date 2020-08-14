@@ -3781,6 +3781,7 @@ GameObject:
   - component: {fileID: 1582488597}
   - component: {fileID: 1582488596}
   - component: {fileID: 1582488601}
+  - component: {fileID: 1582488602}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3811,6 +3812,7 @@ MonoBehaviour:
   firePosition: {fileID: 1615908811}
   bulletPrefab: {fileID: 6043083000873741630, guid: 2af356ad6e4a6da4fb0efa4bb561bb02,
     type: 3}
+  animator: {fileID: 1582488602}
 --- !u!61 &1582488597
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3936,6 +3938,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 578153942}
+--- !u!95 &1582488602
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582488595}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0460a9ab77e6aab499ad06ca13a77c03, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1615908810
 GameObject:
   m_ObjectHideFlags: 0

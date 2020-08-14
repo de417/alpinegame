@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public Transform firePosition;
     public GameObject bulletPrefab;
     private float timeToFire = 0;
+	
+	public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		//Gives Player its animations 
+		animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+
+		//other stuff
+		
         if(transform.position.y < -10)
         {
             transform.position = new Vector3(0,0,0);
